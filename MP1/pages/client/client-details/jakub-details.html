@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1Models</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+</head>
+<body>
+<header>
+    <h1>F1Models</h1>
+    <img src="../../../images/f1logo.png" alt="Shop logo" class="site-logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="../../../index.html">Strona główna</a></li>
+        <li><a href="../../../pages/model/list.html">Modele</a></li>
+        <li><a href="../list.html" class="active">Klienci</a></li>
+        <li><a href="../../../pages/order/list.html">Zamówienia</a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Szczegóły klienta</h2>
+    <form class="form">
+        <label for="clientName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientName" id="clientName" value="Jakub" disabled>
+        <span id="errorClientName"></span>
+
+        <label for="clientSurname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientSurname" id="clientSurname" value="Slusarski" disabled>
+        <span id="errorClientSurname"></span>
+
+        <label for="clientPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" value="578964315" disabled>
+        <span id="errorClientPhoneNumber"></span>
+
+        <div class="form-buttons">
+            <a href="../client-forms/jakub-form-edit.html" class="list-actions-button-edit">Edytuj</a>
+        </div>
+    </form>
+    <h2>Zamówienia danego klienta</h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Nazwa modelu</th>
+            <th>Ilość</th>
+            <th>Data zamówienia</th>
+            <th>Suma zamówienia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Oracle Red Bull Racing RB18</td>
+            <td>2</td>
+            <td>03.11.2022</td>
+            <td>680 zł</td>
+        </tr>
+        <tr>
+            <td>Scuderia Ferrari SF-75</td>
+            <td>1</td>
+            <td>03.11.2022</td>
+            <td>360 zł</td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="../list.html" class="button-add">Powrót</a></p>
+</main>
+<footer>
+    Jakub Ślusarski, s20568
+</footer>
+</body>
+</html>

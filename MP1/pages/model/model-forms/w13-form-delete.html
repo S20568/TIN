@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1Models</title>
+    <link rel="stylesheet" href="../../../css/style.css" />
+</head>
+<body>
+<header>
+    <h1>F1Models</h1>
+    <img src="../../../images/f1logo.png" alt="Shop logo" class="site-logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="../../../index.html">Strona główna</a></li>
+        <li><a href="../list.html" class="active">Modele</a></li>
+        <li><a href="../../../pages/client/list.html">Klienci</a></li>
+        <li><a href="../../../pages/order/list.html">Zamówienia</a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Edytuj model</h2>
+    <form class="form">
+        <label for="modelName">Nazwa: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelName" id="modelName" value="Mercedes-AMG Petronas F1 W13" required>
+        <span id="errorModelName"></span>
+
+        <label for="modelManufacturer">Producent: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelManufacturer" id="modelManufacturer" value="Spark" required>
+        <span id="errorModelManufacturer"></span>
+
+        <label for="modelScale">Skala: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelScale" id="modelScale" value="1:18" required>
+        <span id="errorModelScale"></span>
+
+        <label for="modelPrice">Cena: <span class="symbol-required">*</span></label>
+        <input type="number" name="modelPrice" id="modelPrice" min="80" max="1500" value="400" required>
+        <span id="errorModelPrice"></span>
+
+        <div class="form-buttons">
+            <p id="deleteSummary">Usunięto model!</p>
+            <input type="submit" value="Usuń" class="form-button-submit"/>
+            <a href="../list.html" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+</main>
+<footer>
+    Jakub Ślusarski, s20568
+</footer>
+</body>
+</html>

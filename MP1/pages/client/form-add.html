@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1Models</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+<header>
+    <h1>F1Models</h1>
+    <img src="../../images/f1logo.png" alt="Shop logo" class="site-logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="../../index.html">Strona główna</a></li>
+        <li><a href="../../pages/model/list.html">Modele</a></li>
+        <li><a href="list.html" class="active">Klienci</a></li>
+        <li><a href="../../pages/order/list.html">Zamówienia</a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Nowy klient</h2>
+    <form class="form">
+        <label for="clientName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientName" id="clientName" value="Artur" required>
+        <span id="errorClientName"></span>
+
+        <label for="clientSurname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientSurname" id="clientSurname" value="Bąk" required>
+        <span id="errorClientSurname"></span>
+
+        <label for="clientPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" value="526898741" required>
+        <span id="errorClientPhoneNumber"></span>
+
+        <div class="form-buttons">
+            <p id="addSummary">Dodano klienta!</p>
+            <input type="submit" value="Dodaj" class="form-button-submit"/>
+            <a href="../../index.html" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+</main>
+<footer>
+    Jakub Ślusarski, s20568
+</footer>
+</body>
+</html>
