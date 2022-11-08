@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>F1Models</title>
     <link rel="stylesheet" href="../../css/style.css" />
+    <meta name="viewport" content="width=device-width,initial=scale=1" />
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationClientForm.js"></script>
 </head>
 <body>
 <header>
@@ -19,8 +22,8 @@
     </ul>
 </nav>
 <main>
-    <h2>Nowy model</h2>
-    <form class="form">
+    <h2>Nowy klient</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
         <label for="clientName">Imie: <span class="symbol-required">*</span></label>
         <input type="text" name="clientName" id="clientName" class="error-input" required>
         <span id="errorClientName" class="errors-text">Pole "Imie" jest wymagane</span>

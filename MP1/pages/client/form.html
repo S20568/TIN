@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>F1Models</title>
     <link rel="stylesheet" href="../../css/style.css" />
+    <meta name="viewport" content="width=device-width,initial=scale=1" />
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationClientForm.js"></script>
 </head>
 <body>
 <header>
@@ -20,17 +23,17 @@
 </nav>
 <main>
     <h2>Nowy klient</h2>
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateForm();">
         <label for="clientName">Imie: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientName" id="clientName" required>
+        <input type="text" name="clientName" id="clientName" placeholder="2-20 znaków" required>
         <span id="errorClientName"></span>
 
         <label for="clientSurname">Nazwisko: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientSurname" id="clientSurname" required>
+        <input type="text" name="clientSurname" id="clientSurname" placeholder="2-30 znaków" required>
         <span id="errorClientSurname"></span>
 
         <label for="clientPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" required>
+        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" placeholder="np +48123456789" required>
         <span id="errorClientPhoneNumber"></span>
 
         <div class="form-buttons">

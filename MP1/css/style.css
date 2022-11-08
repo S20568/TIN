@@ -6,11 +6,11 @@ html {
 }
 
 .site-logo {
-    height: 150px;
+    height: 100px;
 }
 
 body {
-    min-width: 600px;
+    min-width: 360px;
 }
 
 header, main, footer {
@@ -28,29 +28,17 @@ header, footer {
 }
 
 header {
-    overflow: auto;
+    display: flex;
+    justify-content: space-between;
 }
-
-header h1 {
-    float: left;
-}
-
-header img {
-    float: right;
-}
-
 nav {
     background-color: #606470;
 }
 
 nav ul {
+    display: flex;
     padding: 0;
-    overflow: hidden;
     list-style-type: none;
-}
-
-nav ul li {
-    float: left;
 }
 
 nav ul li a {
@@ -155,10 +143,14 @@ textarea {
 }
 
 .form {
-    margin-left: 2rem;
-    width: 300px;
+    display: grid;
+    grid-template-columns: 150px 300px 1fr;
+    gap: 1rem;
 }
 
+.form-buttons {
+    grid-column: 1 / span 2;
+}
 .form select, .form input[type="text"], .form input[type="number"] {
     border: 1px solid #fc9797;
     color: black;
@@ -208,4 +200,47 @@ textarea {
 
 .errors-text, .symbol-required {
     color: darkred;
+}
+
+@media all and (max-width: 720px) {
+    nav ul {
+        flex-wrap: wrap;
+    }
+    nav ul li {
+        flex-basis: 50%;
+    }
+    nav ul li a {
+        display: block;
+    }
+    header {
+        flex-direction: column;
+    }
+    header h1 {
+        text-align: center;
+    }
+    header img {
+        align-self: center;
+    }
+    .form {
+        grid-template-columns: 1fr;
+        row-gap: unset;
+        margin-left: unset;
+    }
+    .form-buttons {
+        grid-column: 1 / 1;
+    }
+}
+
+@media all and (max-width: 400px) {
+    body,
+    nav,
+    nav ul,
+    header,
+    main,
+    footer {
+        margin: 0;
+    }
+    nav ul li {
+        flex-basis: 100%;
+    }
 }
