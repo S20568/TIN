@@ -1,0 +1,62 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationClientForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= customer._id %>">
+
+        <label for="clientName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientName" id="clientName" placeholder="2-20 znaków" value="<%= customer.clientFirstName %>"
+                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorClientName"></span>
+
+        <label for="clientSurname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientSurname" id="clientSurname" placeholder="2-30 znaków" value="<%= customer.clientLastName %>"
+                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorClientSurname"></span>
+
+        <label for="clientPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
+        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
+                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorClientPhoneNumber"></span>
+        <% if (formMode == 'showDetails') { %>
+            <div class="section-buttons">
+                <a href="/clients/edit/<%= customer._id%>" class="button-edit">Edytuj</a>
+            </div>
+        <% } %>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+            <h2> Szczegóły zamówień </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Ilość</th>
+                    <th>Data zamówienia</th>
+                    <th>Suma</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (let e of customer.orders) { %>
+                    <tr>
+                        <td><a href="/models/details/<%= e.model._id %>"><%= e.model.modelName%></a></td>
+                        <td><%= e.quantity %></td>
+                        <td><%= e.date.toISOString().split('T')[0] %></td>
+                        <td><%= e.orderAmount %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        <% } %>
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%= btnLabel%>" />
+                <a class="form-button-cancel" href="/clients">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/client">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+</main>
+<%- include('../../fragments/footer.ejs') %>

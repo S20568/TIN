@@ -1,0 +1,46 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegóły modelu</h2>
+    <form class="form">
+        <label for="modelName">Nazwa: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelName" id="modelName" value="Oracle Red Bull Racing RB18" disabled>
+        <span id="errorModelName"></span>
+
+        <label for="modelManufacturer">Producent: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelManufacturer" id="modelManufacturer" value="Bburago" disabled>
+        <span id="errorModelManufacturer"></span>
+
+        <label for="modelScale">Skala: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelScale" id="modelScale" value="1:18" disabled>
+        <span id="errorModelScale"></span>
+
+        <label for="modelPrice">Cena: <span class="symbol-required">*</span></label>
+        <input type="number" name="modelPrice" id="modelPrice" min="80" max="1500" value="340" disabled>
+        <span id="errorModelPrice"></span>
+
+        <div class="form-buttons">
+            <a href="/models/edit" class="list-actions-button-edit">Edytuj</a>
+        </div>
+    </form>
+    <h2>Zamówienia na dany model</h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Klient</th>
+            <th>Ilość</th>
+            <th>Data zamówienia</th>
+            <th>Suma zamówienia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Jakub Ślusarski</td>
+            <td>2</td>
+            <td>03.11.2022</td>
+            <td>680 zł</td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="/models" class="button-add">Powrót</a></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

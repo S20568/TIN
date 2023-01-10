@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>F1Models</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta name="viewport" content="width=device-width,initial=scale=1" />
+</head>
+<body>
+<header>
+    <h1>F1Models</h1>
+    <img src="/images/f1logo.png" alt="Shop logo" class="site-logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+        <li><a href="/clients" class="<%= navLocation == 'client' ? 'active' : ''%>">Klienci</a></li>
+        <li><a href="/models" class="<%= navLocation == 'model' ? 'active' : ''%>">Modele</a></li>
+        <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Zamówienia</a></li>
+    </ul>
+</nav>
