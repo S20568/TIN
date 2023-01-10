@@ -44,7 +44,7 @@
                 <tbody>
                 <% for (let e of model.orders) { %>
                     <tr>
-                        <td><a href="/clients/details/<%= e.client._id %>"><%= e.client.clientFirstName%></a></td>
+                        <td><a href="/customers/details/<%= e.customer._id %>"><%= e.customer.customerFirstName%></a></td>
                         <td><%= e.quantity %></td>
                         <td><%= e.date.toISOString().split('T')[0] %></td>
                         <td><%= e.orderAmount %></td>

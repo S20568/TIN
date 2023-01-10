@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-const Client = sequelize.define('Order', {
+const Order = sequelize.define('Order', {
     _id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
     },
-    clientId: {
+    customerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
     },
@@ -30,4 +30,4 @@ const Client = sequelize.define('Order', {
     }
 });
 
-module.exports = Client;
+module.exports = Order;

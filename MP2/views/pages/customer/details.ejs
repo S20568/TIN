@@ -1,0 +1,48 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegóły klienta</h2>
+    <form class="form">
+        <label for="customerName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerName" id="customerName" value="Jakub" disabled>
+        <span id="errorCustomerName"></span>
+
+        <label for="customerSurname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerSurname" id="customerSurname" value="Slusarski" disabled>
+        <span id="errorCustomerSurname"></span>
+
+        <label for="customerPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerPhoneNumber" id="customerPhoneNumber" value="578964315" disabled>
+        <span id="errorCustomerPhoneNumber"></span>
+
+        <div class="form-buttons">
+            <a href="/customers/edit" class="list-actions-button-edit">Edytuj</a>
+        </div>
+    </form>
+    <h2>Zamówienia danego klienta</h2>
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Nazwa modelu</th>
+            <th>Ilość</th>
+            <th>Data zamówienia</th>
+            <th>Suma zamówienia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Oracle Red Bull Racing RB18</td>
+            <td>2</td>
+            <td>03.11.2022</td>
+            <td>680 zł</td>
+        </tr>
+        <tr>
+            <td>Scuderia Ferrari SF-75</td>
+            <td>1</td>
+            <td>03.11.2022</td>
+            <td>360 zł</td>
+        </tr>
+        </tbody>
+    </table>
+    <p><a href="/customers" class="button-add">Powrót</a></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

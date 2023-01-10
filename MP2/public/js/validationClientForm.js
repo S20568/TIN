@@ -1,44 +1,44 @@
 function validateForm() {
-    const clientNameInput = document.getElementById('clientName')
-    const clientSurnameInput = document.getElementById('clientSurname')
-    const clientPhoneNumberInput = document.getElementById('clientPhoneNumber')
-    const errorClientName = document.getElementById('errorClientName')
-    const errorClientSurname = document.getElementById('errorClientSurname')
-    const errorClientPhoneNumber = document.getElementById('errorClientPhoneNumber')
+    const customerNameInput = document.getElementById('customerName')
+    const customerSurnameInput = document.getElementById('customerSurname')
+    const customerPhoneNumberInput = document.getElementById('customerPhoneNumber')
+    const errorCustomerName = document.getElementById('errorCustomerName')
+    const errorCustomerSurname = document.getElementById('errorCustomerSurname')
+    const errorCustomerPhoneNumber = document.getElementById('errorCustomerPhoneNumber')
     const errorSummary = document.getElementById('errorsSummary')
 
-    resetErrors([clientNameInput, clientSurnameInput, clientPhoneNumberInput], [errorClientName, errorClientSurname, errorClientPhoneNumber], errorSummary);
+    resetErrors([customerNameInput, customerSurnameInput, customerPhoneNumberInput], [errorCustomerName, errorCustomerSurname, errorCustomerPhoneNumber], errorSummary);
 
     let valid = true;
 
-    if(!checkRequired(clientNameInput.value)) {
+    if(!checkRequired(customerNameInput.value)) {
         valid = false;
-        clientNameInput.classList.add("error-input");
-        errorClientName.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(clientNameInput.value, 2, 20)) {
+        customerNameInput.classList.add("error-input");
+        errorCustomerName.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(customerNameInput.value, 2, 20)) {
         valid = false;
-        clientNameInput.classList.add("error-input");
-        errorClientName.innerText = "Pole powinno zawierać od 2 do 20 znaków"
+        customerNameInput.classList.add("error-input");
+        errorCustomerName.innerText = "Pole powinno zawierać od 2 do 20 znaków"
     }
 
-    if(!checkRequired(clientSurnameInput.value)) {
+    if(!checkRequired(customerSurnameInput.value)) {
         valid = false;
-        clientSurnameInput.classList.add("error-input");
-        errorClientSurname.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(clientSurnameInput.value, 2, 30)) {
+        customerSurnameInput.classList.add("error-input");
+        errorCustomerSurname.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(customerSurnameInput.value, 2, 30)) {
         valid = false;
-        clientSurnameInput.classList.add("error-input");
-        errorClientSurname.innerText = "Pole powinno zawierać od 2 do 30 znaków"
+        customerSurnameInput.classList.add("error-input");
+        errorCustomerSurname.innerText = "Pole powinno zawierać od 2 do 30 znaków"
     }
 
-    if(!checkRequired(clientPhoneNumberInput.value)) {
+    if(!checkRequired(customerPhoneNumberInput.value)) {
         valid = false;
-        clientPhoneNumberInput.classList.add("error-input");
-        errorClientPhoneNumber.innerText = "Pole jest wymagane";
-    } else if (!checkPhoneNumber(clientPhoneNumberInput.value)) {
+        customerPhoneNumberInput.classList.add("error-input");
+        errorCustomerPhoneNumber.innerText = "Pole jest wymagane";
+    } else if (!checkPhoneNumber(customerPhoneNumberInput.value)) {
         valid = false;
-        clientPhoneNumberInput.classList.add("error-input");
-        errorClientPhoneNumber.innerText = "Pole powinno zawierać prawidłowy numer telefonu";
+        customerPhoneNumberInput.classList.add("error-input");
+        errorCustomerPhoneNumber.innerText = "Pole powinno zawierać prawidłowy numer telefonu";
     }
 
     if (!valid) {

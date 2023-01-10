@@ -1,28 +1,28 @@
 <%- include('../../fragments/header.ejs') %>
 <main>
-    <script type="application/javascript" src="/js/validationClientForm.js"></script>
+    <script type="application/javascript" src="/js/validationCustomerForm.js"></script>
     <h2><%= pageTitle %></h2>
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 
         <input type="hidden" name="_id" value="<%= customer._id %>">
 
-        <label for="clientName">Imie: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientName" id="clientName" placeholder="2-20 znaków" value="<%= customer.clientFirstName %>"
+        <label for="customerName">Imie: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorClientName"></span>
+        <span id="errorCustomerName"></span>
 
-        <label for="clientSurname">Nazwisko: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientSurname" id="clientSurname" placeholder="2-30 znaków" value="<%= customer.clientLastName %>"
+        <label for="customerSurname">Nazwisko: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerSurname" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorClientSurname"></span>
+        <span id="errorCustomerSurname"></span>
 
-        <label for="clientPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
-        <input type="text" name="clientPhoneNumber" id="clientPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
+        <label for="customerPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerPhoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
-        <span id="errorClientPhoneNumber"></span>
+        <span id="errorCustomerPhoneNumber"></span>
         <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
-                <a href="/clients/edit/<%= customer._id%>" class="button-edit">Edytuj</a>
+                <a href="/customers/edit/<%= customer._id%>" class="button-edit">Edytuj</a>
             </div>
         <% } %>
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
@@ -52,9 +52,9 @@
             <p id="errorsSummary" class="errors-text"></p>
             <% if (formMode != 'showDetails') { %>
                 <input class="form-button-submit" type="submit" value="<%= btnLabel%>" />
-                <a class="form-button-cancel" href="/clients">Anuluj</a>
+                <a class="form-button-cancel" href="/customers">Anuluj</a>
             <% } else { %>
-                <a class="form-button-cancel" href="/client">Powrót</a>
+                <a class="form-button-cancel" href="/customer">Powrót</a>
             <% } %>
         </div>
     </form>

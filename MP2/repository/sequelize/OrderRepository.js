@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 
-const Client = require('../../model/sequelize/Client');
+const Customer = require('../../model/sequelize/Customer');
 const Model = require('../../model/sequelize/Model');
 const Order = require('../../model/sequelize/Order');
 
 exports.getOrders = () => {
     return Order.findAll({
         include: [{
-            model: Client,
-            as: 'client'
+            model: Customer,
+            as: 'customer'
         },
         {
             model: Model,
@@ -20,8 +20,8 @@ exports.getOrders = () => {
 exports.getOrderById = (orderId) => {
     return Order.findByPk(orderId, {
         include: [{
-            model: Client,
-            as: 'client'
+            model: Customer,
+            as: 'customer'
         },
         {
             model: Model,
@@ -34,7 +34,7 @@ exports.createOrder = (data) => {
     console.log(JSON.stringify(data));
 
     return Order.create({
-        clientId: data.clientId,
+        customerId: data.customerId,
         modelId: data.modelId,
         quantity: data.quantity,
         date: data.date,

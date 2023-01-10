@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-const Client = sequelize.define('Model', {
+const Model = sequelize.define('Model', {
     _id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -26,4 +26,4 @@ const Client = sequelize.define('Model', {
     }
 });
 
-module.exports = Client;
+module.exports = Model;

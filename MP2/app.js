@@ -1,4 +1,4 @@
-const clientRouter = require('./routes/clientRoute');
+const customerRouter = require('./routes/customerRoute');
 const modelRouter = require('./routes/modelRoute');
 const orderRouter = require('./routes/orderRoute');
 const sequelizeInit = require('./config/sequelize/init');
@@ -6,7 +6,7 @@ sequelizeInit()
     .catch(err => {
       console.log(err);
     })
-const clientApiRouter = require('./routes/api/ClientApiRoute');
+const customerApiRouter = require('./routes/api/CustomerApiRoute');
 const modelApiRouter = require('./routes/api/ModelApiRoute');
 const orderApiRouter = require('./routes/api/OrderApiRoute');
 
@@ -31,10 +31,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/clients', clientRouter);
+app.use('/customers', customerRouter);
 app.use('/models', modelRouter);
 app.use('/orders', orderRouter);
-app.use('/api/clients', clientApiRouter);
+app.use('/api/customers', customerApiRouter);
 app.use('/api/models', modelApiRouter);
 app.use('/api/orders', orderApiRouter);
 
