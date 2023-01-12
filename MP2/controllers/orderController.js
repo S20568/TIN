@@ -5,7 +5,8 @@ exports.showOrderList = (req, res, next) => {
         .then(orders => {
             res.render('pages/order/list', {
                 orders: orders,
-                navLocation: 'order'
+                navLocation: 'order',
+                validationErrors: []
             });
         });
 }

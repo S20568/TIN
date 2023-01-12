@@ -7,17 +7,17 @@
         <input type="hidden" name="_id" value="<%= customer._id %>">
 
         <label for="customerName">Imie: <span class="symbol-required">*</span></label>
-        <input type="text" name="customerName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
+        <input type="text" name="customerFirstName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCustomerName"></span>
 
         <label for="customerSurname">Nazwisko: <span class="symbol-required">*</span></label>
-        <input type="text" name="customerSurname" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
+        <input type="text" name="customerLastName" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCustomerSurname"></span>
 
         <label for="customerPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
-        <input type="text" name="customerPhoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
+        <input type="text" name="phoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCustomerPhoneNumber"></span>
         <% if (formMode == 'showDetails') { %>
@@ -54,7 +54,7 @@
                 <input class="form-button-submit" type="submit" value="<%= btnLabel%>" />
                 <a class="form-button-cancel" href="/customers">Anuluj</a>
             <% } else { %>
-                <a class="form-button-cancel" href="/customer">Powrót</a>
+                <a class="form-button-cancel" href="/customers">Powrót</a>
             <% } %>
         </div>
     </form>

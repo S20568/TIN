@@ -5,7 +5,8 @@ exports.showModelList = (req, res, next) => {
         .then(models => {
             res.render('pages/model/list', {
                 models: models,
-                navLocation: 'model'
+                navLocation: 'model',
+                validationErrors: []
             });
         });
 }
@@ -17,7 +18,8 @@ exports.showAddModelForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj model',
         formAction: '/models/add',
-        navLocation: 'model'
+        navLocation: 'model',
+        validationErrors: []
     });
 }
 
@@ -31,7 +33,8 @@ exports.showRemoveModelForm = (req, res, next) => {
                 formMode: 'delete',
                 btnLabel: 'Usuń model',
                 formAction: '/models/delete',
-                navLocation: 'model'
+                navLocation: 'model',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +49,8 @@ exports.showEditModelForm = (req, res, next) => {
                 formMode: 'edit',
                 btnLabel: 'Edytuj model',
                 formAction: '/models/edit',
-                navLocation: 'model'
+                navLocation: 'model',
+                validationErrors: []
             });
         });
 }
@@ -60,7 +64,8 @@ exports.showModelDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły modelu',
                 formMode: 'showDetails',
                 formAction: '',
-                navLocation: 'model'
+                navLocation: 'model',
+                validationErrors: []
             });
         });
 }

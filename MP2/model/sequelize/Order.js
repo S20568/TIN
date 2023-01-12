@@ -19,14 +19,38 @@ const Order = sequelize.define('Order', {
     quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            isNumeric: {
+                msg: "Pole powinno zawierać wyłącznie cyfry"
+            }
+        }
     },
     date: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            isDate: {
+                msg: "Pole powinno zawierać date"
+            }
+        }
     },
     orderAmount: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            isNumeric: {
+                msg: "Pole powinno zawierać wyłącznie cyfry"
+            }
+        }
     }
 });
 

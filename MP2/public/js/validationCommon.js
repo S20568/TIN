@@ -43,3 +43,19 @@ function checkPhoneNumber(value) {
     return re.test(value);
 }
 
+function checkModelScale(value) {
+    if (!value) {
+        return false;
+    }
+    value = value.toString().trim();
+    const re = /1:[0-9]+/;
+    return re.test(value);
+}
+
+function checkModelPrice(value) {
+    if (!value) {
+        return false;
+    }
+    value = value
+}
+

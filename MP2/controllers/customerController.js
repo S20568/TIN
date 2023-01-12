@@ -5,7 +5,8 @@ exports.showCustomerList = (req, res, next) => {
         .then(customers => {
             res.render('pages/customer/list', {
                 customers: customers,
-                navLocation: 'customer'
+                navLocation: 'customer',
+                validationErrors: []
             });
         });
 }
@@ -17,7 +18,8 @@ exports.showAddCustomerForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj klienta',
         formAction: '/customers/add',
-        navLocation: 'customer'
+        navLocation: 'customer',
+        validationErrors: []
     });
 }
 
@@ -31,7 +33,8 @@ exports.showRemoveCustomerForm = (req, res, next) => {
                 formMode: 'delete',
                 btnLabel: 'Usuń klienta',
                 formAction: '/customers/delete',
-                navLocation: 'customer'
+                navLocation: 'customer',
+                validationErrors: []
             });
         });
 }
@@ -46,7 +49,8 @@ exports.showEditCustomerForm = (req, res, next) => {
                 formMode: 'edit',
                 btnLabel: 'Edytuj klienta',
                 formAction: '/customers/edit',
-                navLocation: 'customer'
+                navLocation: 'customer',
+                validationErrors: []
             });
         });
 }
@@ -60,7 +64,8 @@ exports.showCustomerDetails = (req, res, next) => {
                 pageTitle: 'Szczegóły klienta',
                 formMode: 'showDetails',
                 formAction: '',
-                navLocation: 'customer'
+                navLocation: 'customer',
+                validationErrors: []
             });
         });
 }

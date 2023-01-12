@@ -19,19 +19,6 @@
                 <td><%= order.quantity %></td>
                 <td><%= order.date %></td>
                 <td><%= order.orderAmount %></td>
-                <td>
-                    <ul class="list-actions">
-                        <li>
-                            <a href="/orders/details/<%=order._id%>" class="list-actions-button-details">Szczegóły</a>
-                        </li>
-                        <li>
-                            <a href="/orders/edit/<%=order._id%>" class="list-actions-button-edit">Edytuj</a>
-                        </li>
-                        <li>
-                            <a href="/orders/delete/<%=order._id%>" class="list-actions-button-delete">Usuń</a>
-                        </li>
-                    </ul>
-                </td>
             </tr>
         <% } %>
         </tbody>
