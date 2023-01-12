@@ -20,10 +20,9 @@
         <input type="text" name="phoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
                 <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
         <span id="errorCustomerPhoneNumber"></span>
-        <% if (formMode == 'showDetails') { %>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <div class="section-buttons">
-                <a href="/customers/edit/<%= customer._id%>" class="button-edit">Edytuj</a>
-            </div>
+                <a href="/customers/edit/<%= customer._id%>" class="form-button-submit">Edytuj</a>
         <% } %>
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <h2> Szczegóły zamówień </h2>
@@ -47,6 +46,7 @@
                 <% } %>
                 </tbody>
             </table>
+            </div>
         <% } %>
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>

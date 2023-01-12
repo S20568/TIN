@@ -25,10 +25,9 @@
         <input type="number" name="modelPrice" id="modelPrice" min="80" max="1500" placeholder="min. 80, max. 1500" value="<%= model.modelPrice %>"
                 <% (formMode == 'showDetails') ? 'disabled' : ''%>/>
         <span id="errorModelPrice"></span>
-        <% if (formMode == 'showDetails') { %>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <div class="section-buttons">
-                <a href="/models/edit/<%= model._id %>" class="button-edit">Edytuj</a>
-            </div>
+                <a href="/models/edit/<%= model._id %>" class="form-button-submit">Edytuj</a>
         <% } %>
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <h2> Szczegóły zamówień </h2>
@@ -52,6 +51,7 @@
                 <% } %>
                 </tbody>
             </table>
+            </div>
         <% } %>
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>

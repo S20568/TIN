@@ -135,7 +135,8 @@ button, input, select, textarea {
     font-family: inherit;
     font-size: 100%;
     box-sizing: border-box;
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 textarea {
@@ -143,6 +144,7 @@ textarea {
 }
 
 .form {
+    margin-left: 2rem;
     display: grid;
     grid-template-columns: 150px 300px 1fr;
     gap: 1rem;
@@ -151,6 +153,11 @@ textarea {
 .form-buttons {
     grid-column: 1 / span 2;
 }
+
+.section-buttons {
+    grid-column: 1 / span 3;
+}
+
 .form select, .form input[type="text"], .form input[type="number"] {
     border: 1px solid #fc9797;
     color: black;
@@ -223,7 +230,7 @@ textarea {
     }
     .form {
         grid-template-columns: 1fr;
-        row-gap: unset;
+        row-gap: 1rem;
         margin-left: unset;
     }
     .form-buttons {
