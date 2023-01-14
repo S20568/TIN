@@ -158,6 +158,10 @@ textarea {
     grid-column: 1 / span 3;
 }
 
+.section-buttons-edit {
+    grid-column: 1 / span 3;
+}
+
 .form select, .form input[type="text"], .form input[type="number"] {
     border: 1px solid #fc9797;
     color: black;

@@ -44,7 +44,7 @@ const Customer = sequelize.define('Customer', {
                 msg: "Pole jest wymagane"
             },
             is: {
-                args: /^\+?([0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})?[-. ]?([0-9]{3})$/,
+                args: /^(\+([0-9]{2})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})?[-. ]?([0-9]{3})$/,
                 msg: "Wprowadź poprawną wartość"
             }
         },

@@ -1,4 +1,5 @@
 const ModelRepository = require('../repository/sequelize/ModelRepository');
+const {Model} = require("sequelize");
 
 exports.showModelList = (req, res, next) => {
     ModelRepository.getModels()
@@ -75,15 +76,40 @@ exports.addModel = (req, res, next) => {
     ModelRepository.createModel(modelData)
         .then( result => {
             res.redirect('/models');
+        }).catch(err => {
+            res.render('pages/model/form', {
+                model: {},
+                pageTitle: 'Nowy model',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj model',
+                formAction: '/models/add',
+                navLocation: 'model',
+                validationErrors: err.errors
         });
+    });
 };
 
 exports.updateModel = (req, res, next) => {
     const modelId = req.body._id;
     const modelData = { ...req.body };
-    ModelRepository.updateModel(modelId, modelData)
-        .then( result => {
-            res.redirect('/models');
+    let tmpModel;
+    return ModelRepository.getModelById(modelId)
+        .then(returned => {
+            tmpModel = returned;
+            return ModelRepository.updateModel(modelId, modelData)
+                .then( result => {
+                    res.redirect('/models');
+                }).catch(err => {
+                    res.render('pages/model/form', {
+                        model: tmpModel,
+                        pageTitle: 'Edycja modela',
+                        formMode: 'edit',
+                        btnLabel: 'Edytuj model',
+                        formAction: '/models/edit',
+                        navLocation: 'model',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 

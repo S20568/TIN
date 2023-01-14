@@ -43,7 +43,7 @@ const Model = sequelize.define('Model', {
                 msg: "Pole jest wymagane"
             },
             is: {
-                args: /1:[0-9]+/,
+                args: /1:[0-9]{2}$/,
                 msg: "Wprowadź poprawną wartość"
             }
         }

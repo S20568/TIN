@@ -8,21 +8,24 @@
 
         <label for="customerName">Imie: <span class="symbol-required">*</span></label>
         <input type="text" name="customerFirstName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
-                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
         <span id="errorCustomerName"></span>
 
         <label for="customerSurname">Nazwisko: <span class="symbol-required">*</span></label>
         <input type="text" name="customerLastName" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
-                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
         <span id="errorCustomerSurname"></span>
 
         <label for="customerPhoneNumber">Numer telefonu: <span class="symbol-required">*</span></label>
         <input type="text" name="phoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
-                <% (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
         <span id="errorCustomerPhoneNumber"></span>
-        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
-            <div class="section-buttons">
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
                 <a href="/customers/edit/<%= customer._id%>" class="form-button-submit">Edytuj</a>
+        <% } %>
+        <% if (formMode == 'edit') { %>
+        <div class="section-buttons-edit">
         <% } %>
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <h2> Szczegóły zamówień </h2>
@@ -46,7 +49,8 @@
                 <% } %>
                 </tbody>
             </table>
-            </div>
+        </div>
+        </div>
         <% } %>
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>

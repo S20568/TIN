@@ -8,26 +8,29 @@
 
         <label for="modelName">Nazwa: <span class="symbol-required">*</span></label>
         <input type="text" name="modelName" id="modelName" placeholder="2-50 znaków" value="<%= model.modelName %>"
-                <% (formMode == 'showDetails') ? 'disabled' : ''%>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
         <span id="errorModelName"></span>
 
         <label for="modelManufacturer">Producent: <span class="symbol-required">*</span></label>
         <input type="text" name="modelManufacturer" id="modelManufacturer" placeholder="2-30 znaków" value="<%= model.modelManufacturer %>"
-                <% (formMode == 'showDetails') ? 'disabled' : ''%>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
         <span id="errorModelManufacturer"></span>
 
         <label for="modelScale">Skala: <span class="symbol-required">*</span></label>
         <input type="text" name="modelScale" id="modelScale" placeholder="np. 1:18, 1:43" value="<%= model.modelScale %>"
-                <% (formMode == 'showDetails') ? 'disabled' : ''%>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
         <span id="errorModelScale"></span>
 
         <label for="modelPrice">Cena: <span class="symbol-required">*</span></label>
         <input type="number" name="modelPrice" id="modelPrice" min="80" max="1500" placeholder="min. 80, max. 1500" value="<%= model.modelPrice %>"
-                <% (formMode == 'showDetails') ? 'disabled' : ''%>/>
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
         <span id="errorModelPrice"></span>
-        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
-            <div class="section-buttons">
-                <a href="/models/edit/<%= model._id %>" class="form-button-submit">Edytuj</a>
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/models/edit/<%= model._id %>" class="form-button-submit">Edytuj</a>
+        <% } %>
+        <% if (formMode == 'edit') { %>
+        <div class="section-buttons-edit">
         <% } %>
         <% if (formMode == 'showDetails' || formMode == 'edit') { %>
             <h2> Szczegóły zamówień </h2>
@@ -51,7 +54,8 @@
                 <% } %>
                 </tbody>
             </table>
-            </div>
+        </div>
+        </div>
         <% } %>
         <div class="form-buttons">
             <p id="errorsSummary" class="errors-text"></p>

@@ -75,15 +75,40 @@ exports.addCustomer = (req, res, next) => {
     CustomerRepository.createCustomer(customerData)
         .then( result => {
             res.redirect('/customers');
+        }).catch(err => {
+            res.render('pages/customer/form', {
+                customer: {},
+                pageTitle: 'Nowy klient',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj klienta',
+                formAction: '/customers/add',
+                navLocation: 'customer',
+                validationErrors: err.errors
         });
+    });
 };
 
 exports.updateCustomer = (req, res, next) => {
     const customerId = req.body._id;
     const customerData = { ...req.body };
-    CustomerRepository.updateCustomer(customerId, customerData)
-        .then( result => {
-            res.redirect('/customers');
+    let tmpCustomer;
+    return CustomerRepository.getCustomerById(customerId)
+        .then(returned => {
+            tmpCustomer = returned;
+            return CustomerRepository.updateCustomer(customerId, customerData)
+                .then( result => {
+                    res.redirect('/customers');
+                }).catch(err => {
+                    res.render('pages/customer/form', {
+                        customer: tmpCustomer,
+                        pageTitle: 'Edycja klienta',
+                        formMode: 'edit',
+                        btnLabel: 'Edytuj klienta',
+                        formAction: '/customers/edit',
+                        navLocation: 'customer',
+                        validationErrors: err.errors
+                    });
+                });
         });
 };
 
