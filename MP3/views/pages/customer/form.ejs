@@ -1,0 +1,71 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationCustomerForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= customer._id %>">
+
+        <label for="customerName"><%= __('customer.fields.customerFirstName')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerFirstName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
+        <span id="errorCustomerName"></span>
+
+        <label for="customerSurname"><%= __('customer.fields.customerLastName')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerLastName" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
+        <span id="errorCustomerSurname"></span>
+
+        <label for="customerEmail"><%= __('customer.fields.customerEmail')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="customerEmail" id="customerEmail" placeholder="np. nazwa@domena.pl" value="<%= customer.customerEmail %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
+        <span id="errorCustomerEmail"></span>
+
+        <label for="customerPhoneNumber"><%= __('customer.fields.phoneNumber')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="phoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
+        <span id="errorCustomerPhoneNumber"></span>
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+                <a href="/customers/edit/<%= customer._id%>" class="form-button-submit"><%= __('form.actions.edit')%></a>
+        <% } %>
+        <% if (formMode == 'edit') { %>
+        <div class="section-buttons-edit">
+        <% } %>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+            <h2> <%= __('customer.form.order')%> </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th><%= __('orders.fields.modelName')%></th>
+                    <th><%= __('orders.fields.quantity')%></th>
+                    <th><%= __('orders.fields.date')%></th>
+                    <th><%= __('orders.fields.orderAmount')%></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (let e of customer.orders) { %>
+                    <tr>
+                        <td><a href="/models/details/<%= e.model._id %>"><%= e.model.modelName%></a></td>
+                        <td><%= e.quantity %></td>
+                        <td><%= e.date.toISOString().split('T')[0] %></td>
+                        <td><%= e.orderAmount %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <% } %>
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/customers"><%= __('form.actions.cancel')%></a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/customers"><%= __('form.actions.return')%></a>
+            <% } %>
+        </div>
+    </form>
+</main>
+<%- include('../../fragments/footer.ejs') %>

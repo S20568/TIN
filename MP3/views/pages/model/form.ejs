@@ -1,0 +1,70 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationModelForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= model._id %>">
+
+        <label for="modelName"><%= __('model.fields.modelName')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelName" id="modelName" placeholder="2-50 znaków" value="<%= model.modelName %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
+        <span id="errorModelName"></span>
+
+        <label for="modelManufacturer"><%= __('model.fields.modelManufacturer')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelManufacturer" id="modelManufacturer" placeholder="2-30 znaków" value="<%= model.modelManufacturer %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
+        <span id="errorModelManufacturer"></span>
+
+        <label for="modelScale"><%= __('model.fields.modelScale')%>: <span class="symbol-required">*</span></label>
+        <input type="text" name="modelScale" id="modelScale" placeholder="np. 1:18, 1:43" value="<%= model.modelScale %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
+        <span id="errorModelScale"></span>
+
+        <label for="modelPrice"><%= __('model.fields.modelPrice')%>: <span class="symbol-required">*</span></label>
+        <input type="number" name="modelPrice" id="modelPrice" min="80" max="1500" placeholder="min. 80, max. 1500" value="<%= model.modelPrice %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%>/>
+        <span id="errorModelPrice"></span>
+        <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/models/edit/<%= model._id %>" class="form-button-submit"><%= __('form.actions.edit')%></a>
+        <% } %>
+        <% if (formMode == 'edit') { %>
+        <div class="section-buttons-edit">
+        <% } %>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+            <h2> <%= __('customer.form.order')%> </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th><%= __('order.fields.customerName')%></th>
+                    <th><%= __('order.fields.quantity')%></th>
+                    <th><%= __('order.fields.date')%></th>
+                    <th><%= __('order.fields.orderAmount')%></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (let e of model.orders) { %>
+                    <tr>
+                        <td><a href="/customers/details/<%= e.customer._id %>"><%= e.customer.customerFirstName%></a></td>
+                        <td><%= e.quantity %></td>
+                        <td><%= e.date.toISOString().split('T')[0] %></td>
+                        <td><%= e.orderAmount %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <% } %>
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%= btnLabel%>" />
+                <a class="form-button-cancel" href="/models"><%= __('form.actions.cancel')%></a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/models"><%= __('form.actions.return')%></a>
+            <% } %>
+    </form>
+</main>
+<%- include('../../fragments/footer.ejs') %>

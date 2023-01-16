@@ -1,0 +1,125 @@
+{
+  "main-page": {
+    "content": "Strona główna"
+  },
+  "nav": {
+    "main-page": "Strona główna",
+    "customers": "Klienci",
+    "models": "Modele",
+    "orders": "Zamówienia"
+  },
+  "list": {
+    "actions": {
+      "title": "Akcje",
+      "details": "Szczegóły",
+      "edit": "Edytuj",
+      "delete": "Usuń"
+    }
+  },
+  "form": {
+    "actions": {
+      "return": "Powrót",
+      "edit": "Edytuj",
+      "cancel": "Anuluj"
+    }
+  },
+  "customer": {
+    "fields": {
+      "customerFirstName": "Imię",
+      "customerLastName": "Nazwisko",
+      "customerEmail": "Email",
+      "phoneNumber": "Numer telefonu"
+    },
+    "list": {
+      "title": "Klienci",
+      "addNew": "Dodaj nowego klienta",
+      "noData": "Brak klientów w bazie",
+      "pageTitle": "Lista klientów"
+    },
+    "form": {
+      "order": "Historia zamówień",
+      "add": {
+        "pageTitle": "Dodawanie klienta",
+        "btnLabel": "Dodaj klienta",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano klienta"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja klienta",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano klienta"
+        }
+      }
+    }
+  },
+  "model": {
+    "fields": {
+      "modelName": "Nazwa",
+      "modelManufacturer": "Producent",
+      "modelScale": "Skala",
+      "modelPrice": "Cena"
+    },
+    "list": {
+      "title": "Modele",
+      "addNew": "Dodaj nowy model",
+      "noData": "Brak modeli w bazie",
+      "pageTitle": "Lista modeli"
+    },
+    "form": {
+      "order": "Historia zamówień",
+      "add": {
+        "pageTitle": "Dodawanie modelu",
+        "btnLabel": "Dodaj model",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano model"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja modelu",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano model"
+        }
+      }
+    }
+  },
+  "order": {
+    "fields": {
+      "customerName": "Klient",
+      "modelName": "Model",
+      "quantity": "Ilość",
+      "date": "Data zamówienia",
+      "orderAmount": "Kwota zamówienia"
+    },
+    "list": {
+      "title": "Zamówienia",
+      "addNew": "Dodaj nowe zamówienie",
+      "noData": "Brak zamówień w bazie",
+      "pageTitle": "Lista zamówień"
+    },
+    "form": {
+      "add": {
+        "pageTitle": "Dodawanie zamówienia",
+        "btnLabel": "Dodaj zamówienia",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie dodano zamówienie"
+        }
+      },
+      "edit": {
+        "pageTitle": "Edycja zamówienia",
+        "btnLabel": "Zapisz zmiany",
+        "confirm": {
+          "header": "Potwierdzenie operacji",
+          "text": "Pomyślnie zaktualizowano zamówienie"
+        }
+      }
+    }
+  }
+}

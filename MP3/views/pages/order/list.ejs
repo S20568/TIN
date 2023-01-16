@@ -1,0 +1,27 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Zamówienia</h2>
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>Klient</th>
+                <th>Modele</th>
+                <th>Ilość</th>
+                <th>Data zamówienia</th>
+                <th>Kwota zamówienia</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (let order of orders) { %>
+            <tr>
+                <td><%= order.customer.customerFirstName %> <%= order.customer.customerLastName%></td>
+                <td><%= order.model.modelName %></td>
+                <td><%= order.quantity %></td>
+                <td><%= order.date %></td>
+                <td><%= order.orderAmount %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</main>
+<%- include('../../fragments/footer.ejs') %>
