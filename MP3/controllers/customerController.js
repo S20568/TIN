@@ -14,9 +14,9 @@ exports.showCustomerList = (req, res, next) => {
 exports.showAddCustomerForm = (req, res, next) => {
     res.render('pages/customer/form', {
         customer: {},
-        pageTitle: 'Nowy klient',
+        pageTitle: req.__('customer.form.add.pageTitle'),
         formMode: 'createNew',
-        btnLabel: 'Dodaj klienta',
+        btnLabel: req.__('customer.form.add.btnLabel'),
         formAction: '/customers/add',
         navLocation: 'customer',
         validationErrors: []
@@ -45,9 +45,9 @@ exports.showEditCustomerForm = (req, res, next) => {
         .then(customer => {
             res.render('pages/customer/form', {
                 customer: customer,
-                pageTitle: 'Edycja klienta',
+                pageTitle: req.__('customer.form.edit.pageTitle'),
                 formMode: 'edit',
-                btnLabel: 'Edytuj klienta',
+                btnLabel: req.__('customer.form.edit.btnLabel'),
                 formAction: '/customers/edit',
                 navLocation: 'customer',
                 validationErrors: []
@@ -61,7 +61,7 @@ exports.showCustomerDetails = (req, res, next) => {
         .then(customer => {
             res.render('pages/customer/form', {
                 customer: customer,
-                pageTitle: 'Szczegóły klienta',
+                pageTitle: req.__('customer.form.details.pageTitle'),
                 formMode: 'showDetails',
                 formAction: '',
                 navLocation: 'customer',
@@ -78,9 +78,9 @@ exports.addCustomer = (req, res, next) => {
         }).catch(err => {
             res.render('pages/customer/form', {
                 customer: {},
-                pageTitle: 'Nowy klient',
+                pageTitle: req.__('customer.form.add.pageTitle'),
                 formMode: 'createNew',
-                btnLabel: 'Dodaj klienta',
+                btnLabel: req.__('customer.form.add.btnLabel'),
                 formAction: '/customers/add',
                 navLocation: 'customer',
                 validationErrors: err.errors
@@ -101,9 +101,9 @@ exports.updateCustomer = (req, res, next) => {
                 }).catch(err => {
                     res.render('pages/customer/form', {
                         customer: tmpCustomer,
-                        pageTitle: 'Edycja klienta',
+                        pageTitle: req.__('customer.form.edit.pageTitle'),
                         formMode: 'edit',
-                        btnLabel: 'Edytuj klienta',
+                        btnLabel: req.__('customer.form.edit.btnLabel'),
                         formAction: '/customers/edit',
                         navLocation: 'customer',
                         validationErrors: err.errors

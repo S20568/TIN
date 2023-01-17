@@ -7,24 +7,7 @@
     <meta name="viewport" content="width=device-width,initial=scale=1" />
 </head>
 <body>
-<% if(!loggedUser) { %>
-    <div id="login">
-        <h5>Logowanie</h5>
-        <form method="post" action="/login" novalidate>
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="email">
 
-            <label for="loginPassword">Hasło:</label>
-            <input type="password" id="loginPassword" name="password">
-
-            <input type="submit" value="Zaloguj się">
-            <span id="loginErrors"><%= loginError ? loginError : ''%></span>
-        </form>
-    </div>
-<% } else { %>
-    <span>Jesteś zalogowany jako: <%= loggedUser.customerFirstName + " " + loggedUser.customerLastName%></span>
-    <a href="/logout">Wyloguj się</a>
-<% } %>
 <header>
     <h1>F1Models</h1>
     <img src="/images/f1logo.png" alt="Shop logo" class="site-logo">
@@ -34,8 +17,30 @@
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
         <% if(loggedUser) { %>
         <li><a href="/customers" class="<%= navLocation == 'customer' ? 'active' : ''%>"><%= __('nav.customers') %></a></li>
-        <li><a href="/models" class="<%= navLocation == 'model' ? 'active' : ''%>"><%= __('nav.mdoels') %></a></li>
+        <li><a href="/models" class="<%= navLocation == 'model' ? 'active' : ''%>"><%= __('nav.models') %></a></li>
         <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>"><%= __('nav.orders') %></a></li>
+        <% } %>
+            <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+            <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+    </ul>
+    <ul>
+        <% if(!loggedUser) { %>
+            <div id="login">
+                <h5>Logowanie</h5>
+                <form method="post" action="/login" novalidate>
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="customerEmail">
+
+                    <label for="loginPassword">Hasło:</label>
+                    <input type="password" id="loginPassword" name="password">
+
+                    <input type="submit" value="Zaloguj się">
+                    <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+                </form>
+            </div>
+        <% } else { %>
+            <span>Jesteś zalogowany jako: <%= loggedUser.customerFirstName + " " + loggedUser.customerLastName%></span>
+            <a href="/logout">Wyloguj się</a>
         <% } %>
     </ul>
 </nav>

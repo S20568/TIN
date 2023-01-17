@@ -1,7 +1,8 @@
 const CustomerRepository = require('../repository/sequelize/CustomerRepository');
+const authUtil = require('../utils/authUtils');
 
 exports.login = (req, res, next) => {
-    const email = req.body.email;
+    const email = req.body.customerEmail;
     const password = req.body.password;
     CustomerRepository.findByEmail(email)
         .then(customer => {
@@ -26,6 +27,6 @@ exports.login = (req, res, next) => {
 }
 
 exports.logout = (req, res, next) => {
-    res.sessions.loggedUser = undefined;
+    res.session.loggedUser = undefined;
     res.redirect('/');
 }

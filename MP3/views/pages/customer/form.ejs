@@ -2,6 +2,17 @@
 <main>
     <script type="application/javascript" src="/js/validationCustomerForm.js"></script>
     <h2><%= pageTitle %></h2>
+
+    <div style="display: none">
+        <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+        <span id="errorMessage-summary"><%= __('validationMessage.summary') %></span>
+        <span id="errorMessage-firstNameTextLength"><%= __('validationMessage.firstNameTextLength') %></span>
+        <span id="errorMessage-lastNameTextLength"><%= __('validationMessage.lastNameTextLength') %></span>
+        <span id="errorMessage-emailTextLength"><%= __('validationMessage.emailTextLength') %></span>
+        <span id="errorMessage-email"><%= __('validationMessage.email') %></span>
+        <span id="errorMessage-phoneNumber"><%= __('validationMessage.phoneNumber') %></span>
+    </div>
+
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
 
         <input type="hidden" name="_id" value="<%= customer._id %>">
@@ -9,22 +20,38 @@
         <label for="customerName"><%= __('customer.fields.customerFirstName')%>: <span class="symbol-required">*</span></label>
         <input type="text" name="customerFirstName" id="customerName" placeholder="2-20 znaków" value="<%= customer.customerFirstName %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
-        <span id="errorCustomerName"></span>
+        <span id="errorCustomerName">
+            <% if (validationErrors && validationErrors.find(err => err.path.includes('customerFirstName'))) { %>
+                <%= __(validationErrors.find(err => err.path.includes('customerFirstName')).message) %>
+            <% } %>
+        </span>
 
         <label for="customerSurname"><%= __('customer.fields.customerLastName')%>: <span class="symbol-required">*</span></label>
         <input type="text" name="customerLastName" id="customerSurname" placeholder="2-30 znaków" value="<%= customer.customerLastName %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
-        <span id="errorCustomerSurname"></span>
+        <span id="errorCustomerSurname">
+            <% if (validationErrors && validationErrors.find(err => err.path.includes('customerLastName'))) { %>
+                <%= __(validationErrors.find(err => err.path.includes('customerLastName')).message) %>
+            <% } %>
+        </span>
 
         <label for="customerEmail"><%= __('customer.fields.customerEmail')%>: <span class="symbol-required">*</span></label>
         <input type="text" name="customerEmail" id="customerEmail" placeholder="np. nazwa@domena.pl" value="<%= customer.customerEmail %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
-        <span id="errorCustomerEmail"></span>
+        <span id="errorCustomerEmail">
+            <% if (validationErrors && validationErrors.find(err => err.path.includes('customerEmail'))) { %>
+                <%= __(validationErrors.find(err => err.path.includes('customerEmail')).message) %>
+            <% } %>
+        </span>
 
         <label for="customerPhoneNumber"><%= __('customer.fields.phoneNumber')%>: <span class="symbol-required">*</span></label>
         <input type="text" name="phoneNumber" id="customerPhoneNumber" placeholder="np +48123456789" value="<%= customer.phoneNumber %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : ' ' %>/>
-        <span id="errorCustomerPhoneNumber"></span>
+        <span id="errorCustomerPhoneNumber">
+            <% if (validationErrors && validationErrors.find(err => err.path.includes('phoneNumber'))) { %>
+                <%= __(validationErrors.find(err => err.path.includes('phoneNumber')).message) %>
+            <% } %>
+        </span>
         <% if (formMode == 'showDetails') { %>
         <div class="section-buttons">
                 <a href="/customers/edit/<%= customer._id%>" class="form-button-submit"><%= __('form.actions.edit')%></a>
@@ -37,10 +64,10 @@
             <table class="table-list">
                 <thead>
                 <tr>
-                    <th><%= __('orders.fields.modelName')%></th>
-                    <th><%= __('orders.fields.quantity')%></th>
-                    <th><%= __('orders.fields.date')%></th>
-                    <th><%= __('orders.fields.orderAmount')%></th>
+                    <th><%= __('order.fields.modelName')%></th>
+                    <th><%= __('order.fields.quantity')%></th>
+                    <th><%= __('order.fields.date')%></th>
+                    <th><%= __('order.fields.orderAmount')%></th>
                 </tr>
                 </thead>
                 <tbody>

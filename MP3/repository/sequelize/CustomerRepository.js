@@ -1,6 +1,7 @@
 const Customer = require('../../model/sequelize/Customer');
 const Model = require('../../model/sequelize/Model');
 const Order = require('../../model/sequelize/Order');
+const authUtil = require('../../utils/authUtils');
 
 exports.getCustomers = () => {
     return Customer.findAll();
@@ -44,6 +45,6 @@ exports.deleteCustomer = (customerId) => {
 
 exports.findByEmail = (email) => {
     return Customer.findOne({
-        where: {email: email}
+        where: {customerEmail: email}
     });
 }

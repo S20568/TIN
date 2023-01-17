@@ -8,6 +8,13 @@ function validateForm() {
     const errorCustomerEmail = document.getElementById('errorCustomerEmail')
     const errorCustomerPhoneNumber = document.getElementById('errorCustomerPhoneNumber')
     const errorSummary = document.getElementById('errorsSummary')
+    const reqMessage = document.getElementById('errorMessage-required').innerText;
+    const sumMessage = document.getElementById('errorMessage-summary').innerText;
+    const firstNameTextLengthMessage = document.getElementById('errorMessage-firstNameTextLength').innerText;
+    const lastNameTextLengthMessage = document.getElementById('errorMessage-lastNameTextLength').innerText;
+    const emailTextLengthMessage = document.getElementById('errorMessage-emailTextLength').innerText;
+    const emailMessage = document.getElementById('errorMessage-email').innerText;
+    const phoneNumberMessage = document.getElementById('errorMessage-phoneNumber').innerText;
 
     resetErrors([customerNameInput, customerSurnameInput, customerEmailInput, customerPhoneNumberInput], [errorCustomerName, errorCustomerSurname, errorCustomerEmail, errorCustomerPhoneNumber], errorSummary);
 
@@ -16,49 +23,49 @@ function validateForm() {
     if(!checkRequired(customerNameInput.value)) {
         valid = false;
         customerNameInput.classList.add("error-input");
-        errorCustomerName.innerText = "Pole jest wymagane";
+        errorCustomerName.innerText = reqMessage;
     } else if (!checkTextLengthRange(customerNameInput.value, 2, 20)) {
         valid = false;
         customerNameInput.classList.add("error-input");
-        errorCustomerName.innerText = "Pole powinno zawierać od 2 do 20 znaków"
+        errorCustomerName.innerText = firstNameTextLengthMessage;
     }
 
     if(!checkRequired(customerSurnameInput.value)) {
         valid = false;
         customerSurnameInput.classList.add("error-input");
-        errorCustomerSurname.innerText = "Pole jest wymagane";
+        errorCustomerSurname.innerText = reqMessage;
     } else if (!checkTextLengthRange(customerSurnameInput.value, 2, 30)) {
         valid = false;
         customerSurnameInput.classList.add("error-input");
-        errorCustomerSurname.innerText = "Pole powinno zawierać od 2 do 30 znaków"
+        errorCustomerSurname.innerText = lastNameTextLengthMessage;
     }
 
     if(checkRequired(customerEmailInput.value)) {
         valid = false;
         customerEmailInput.classList.add("error-input");
-        errorCustomerEmail.innerText = "Pole jest wymagane";
+        errorCustomerEmail.innerText = reqMessage;
     } else if (!checkTextLengthRange(customerEmailInput, 5, 60)) {
         valid = false;
         customerEmailInput.classList.add("error-input");
-        errorCustomerEmail.innerText = "Pole powinno zawierać od 5 do 60 znaków";
+        errorCustomerEmail.innerText = emailTextLengthMessage;
     } else if (!checkEmail(customerEmailInput.value)) {
         valid = false;
         customerEmailInput.classList.add("error-input");
-        errorCustomerEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
+        errorCustomerEmail.innerText = emailMessage;
     }
 
     if(!checkRequired(customerPhoneNumberInput.value)) {
         valid = false;
         customerPhoneNumberInput.classList.add("error-input");
-        errorCustomerPhoneNumber.innerText = "Pole jest wymagane";
+        errorCustomerPhoneNumber.innerText = reqMessage;
     } else if (!checkPhoneNumber(customerPhoneNumberInput.value)) {
         valid = false;
         customerPhoneNumberInput.classList.add("error-input");
-        errorCustomerPhoneNumber.innerText = "Pole powinno zawierać prawidłowy numer telefonu";
+        errorCustomerPhoneNumber.innerText = phoneNumberMessage;
     }
 
     if (!valid) {
-        errorSummary.innerText = "Formularz zawiera błędy";
+        errorSummary.innerText = sumMessage;
     }
     return valid;
 }

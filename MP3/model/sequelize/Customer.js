@@ -14,11 +14,11 @@ const Customer = sequelize.define('Customer', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "error.emptyString"
             },
             len: {
-                args: [2,50],
-                msg: "Pole powinno zawierać od 2 do 20 znaków"
+                args: [2,20],
+                msg: "error.stringLen_2_20"
             },
         }
     },
@@ -27,11 +27,11 @@ const Customer = sequelize.define('Customer', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "error.emptyString"
             },
             len: {
-                args: [2,50],
-                msg: "Pole powinno zawierać od 2 do 30 znaków"
+                args: [2,30],
+                msg: "error.stringLen_2_30"
             },
         }
     },
@@ -41,11 +41,11 @@ const Customer = sequelize.define('Customer', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "error.emptyString"
             },
             len: {
                 args: [5,60],
-                msg: "Pole powinno zawierać od 5 do 60 znaków",
+                msg: "error.stringLen_5_60",
             },
             isEmail: {
                 msg: "Pole powinno zawierać prawidłowy adres email"
