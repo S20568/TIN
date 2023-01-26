@@ -27,6 +27,6 @@ exports.login = (req, res, next) => {
 }
 
 exports.logout = (req, res, next) => {
-    res.session.loggedUser = undefined;
+    req.session.loggedUser = undefined;
     res.redirect('/');
 }

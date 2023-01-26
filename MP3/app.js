@@ -15,11 +15,10 @@ const orderApiRouter = require('./routes/api/OrderApiRoute');
 const authUtils = require('./utils/authUtils');
 
 var app = express();
+var cors = require('cors');
 
 const i18n = require('i18n');
 const session = require('express-session');
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,6 +56,7 @@ app.use((req, res, next) => {
     }
     next();
 });
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/customers', authUtils.permitAuthenticatedUser, customerRouter);
