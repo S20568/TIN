@@ -1,21 +1,23 @@
 import { getFormattedDate } from "../../helpers/dateHelper"
+import {useTranslation} from "react-i18next";
 
 function CustomerDetailsData(props) {
-    const customer = props.customer
+    const customer = props.customerData
+    const { t } = useTranslation();
     return (
         <>
-            <p>Imię: {customer.customerFirstName} </p>
-            <p>Nazwisko: {customer.customerLastName} </p>
-            <p>E-mail: {customer.customerEmail} </p>
-            <p>Numer telefonu: {customer.phoneNumber} </p>
-            <h2>Historia zamówień</h2>
+            <p>{t('customer.fields.customerFirstName')}: {customer.customerFirstName} </p>
+            <p>{t('customer.fields.customerLastName')}: {customer.customerLastName} </p>
+            <p>{t('customer.fields.customerEmail')}: {customer.customerEmail} </p>
+            <p>{t('customer.fields.phoneNumber')}: {customer.phoneNumber} </p>
+            <h2>{t('customer.form.order')}</h2>
             <table className="table-list">
                 <thead>
                     <tr>
-                        <th>Model</th>
-                        <th>Ilość</th>
-                        <th>Data zamówienia</th>
-                        <th>Kwota zamówienia</th>
+                        <th>{t('customer.form.details.model')}</th>
+                        <th>{t('order.fields.quantity')}</th>
+                        <th>{t('order.fields.date')}</th>
+                        <th>{t('order.fields.orderAmount')}</th>
                     </tr>
                 </thead>
                 <tbody>

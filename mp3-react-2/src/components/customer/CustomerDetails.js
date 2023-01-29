@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import { getCustomerByIdApiCall } from '../../apiCalls/customerApiCalls'
 import { Link, useParams } from 'react-router-dom'
+import { getCustomerByIdApiCall } from '../../apiCalls/customerApiCalls'
 import CustomerDetailsData from "./CustomerDetailsData";
+import { useTranslation } from 'react-i18next';
 
 function CustomerDetails() {
     const [customer, setCustomer] = useState({})
     const [error, setError] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const [message, setMessage] = useState(null)
+
+    const { t } = useTranslation();
 
     let { customerId } = useParams()
     customerId = parseInt(customerId)
@@ -40,9 +43,9 @@ function CustomerDetails() {
     let content;
 
     if (error) {
-        content = <p>Błąd: {error.message}</p>
+        content = <p>{t('form.validation.error_short')}: {error.message}</p>
     } else if (!isLoaded) {
-        content = <p> Ładowanie danych klienta... </p>
+        content = <p> {t('customer.form.details.loading')} </p>
     } else if (message) {
         content = <p>{message}</p>
     } else {
@@ -51,10 +54,10 @@ function CustomerDetails() {
 
     return (
         <main>
-            <h2>Dane klienta</h2>
+            <h2>{t('customer.form.details.pageTitle')}</h2>
             { content }
-            <div className="section-buttons">
-                <Link to="/customers" className="button-back">Powrót</Link>
+            <div className="form-buttons">
+                <Link to="/customers" className="button-back">{t('form.actions.return')}</Link>
             </div>
         </main>
     )

@@ -1,17 +1,19 @@
 import React from 'react';
 import CustomerListTableRow from './CustomerListTableRow'
+import {useTranslation} from "react-i18next";
 
 function CustomerListTable(props) {
     const customers = props.customerList
+    const { t } = useTranslation();
     return (
         <table className="table-list" >
             <thead>
                 <tr>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>E-mail</th>
-                    <th>Numer telefonu</th>
-                    <th>Akcje</th>
+                    <th>{t('customer.fields.customerFirstName')}</th>
+                    <th>{t('customer.fields.customerLastName')}</th>
+                    <th>{t('customer.fields.customerEmail')}</th>
+                    <th>{t('customer.fields.phoneNumber')}</th>
+                    <th>{t('list.actions.title')}</th>
                 </tr>
             </thead>
             <tbody>

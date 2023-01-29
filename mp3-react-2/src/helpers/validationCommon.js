@@ -1,14 +1,4 @@
-function resetErrors(inputs, errorTexts, errorInfo) {
-    for (let i=0; i<inputs.length; i++) {
-        inputs[i].classList.remove("error-input");
-    }
-    for (let i=0; i<errorTexts.length; i++) {
-        errorTexts[i].innerText = "";
-    }
-    errorInfo.innerText = "";
-}
-
-function checkRequired(value) {
+export function checkRequired(value) {
     if (!value) {
         return false;
     }
@@ -19,7 +9,7 @@ function checkRequired(value) {
     return true;
 }
 
-function checkTextLengthRange(value, min, max) {
+export function checkTextLengthRange(value, min, max) {
     if (!value) {
         return false;
     }
@@ -34,15 +24,16 @@ function checkTextLengthRange(value, min, max) {
     return true;
 }
 
-function checkEmail(value) {
+export function checkEmail(value) {
     if (!value) {
         return false;
     }
     value = value.toString().trim();
-    const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]\+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    return re.test(value);
 }
 
-function checkPhoneNumber(value) {
+export function checkPhoneNumber(value) {
     if (!value) {
         return false;
     }
@@ -51,7 +42,7 @@ function checkPhoneNumber(value) {
     return re.test(value);
 }
 
-function checkModelScale(value) {
+export function checkModelScale(value) {
     if (!value) {
         return false;
     }
@@ -60,10 +51,47 @@ function checkModelScale(value) {
     return re.test(value);
 }
 
-function checkModelPrice(value) {
-    if (!value) {
+export function checkModelPrice(value) {
+    const min = 80;
+    const max = 1500;
+    if (!value)
+        return false;
+    if (isNaN(value))
+        return false;
+    if (value < min)
+        return false;
+    if (value > max)
+        return false;
+    return true;
+}
+
+export function checkModelQuantity(value) {
+    const min = 1;
+    const max = 10;
+    if (!value)
+        return false;
+    if (isNaN(value))
+        return false;
+    if (value < min)
+        return false;
+    if (value > max)
+        return false;
+    return true;
+}
+
+export function checkOrderAmount(value) {
+    if(!value)
+        return false;
+    if(isNaN(value))
+        return false;
+    return true;
+}
+
+export function checkDate(value) {
+    if(!value) {
         return false;
     }
-    value = value
+    const re = /(\d{4})-(\d{2})-(\d{2})/;
+    return re.test(value);
 }
 

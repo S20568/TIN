@@ -1,6 +1,11 @@
 {
 	"main-page": {
-		"content": "Strona główna"
+		"content": "Strona główna",
+		"description": "Sklep z modelami bolidów Formuły 1!"
+	},
+	"auth": {
+		"pageTitle": "Zaloguj się",
+		"logout": "Wyloguj się"
 	},
 	"nav": {
 		"main-page": "Strona główna",
@@ -19,9 +24,44 @@
 	},
 	"form": {
 		"actions": {
+			"add": "Dodaj",
 			"return": "Powrót",
 			"edit": "Edytuj",
-			"cancel": "Anuluj"
+			"cancel": "Anuluj",
+			"login": "Zaloguj sie"
+		},
+		"validation": {
+			"messages": {
+				"notEmpty": "Pole jest wymagane",
+				"len_2_20": "Pole powinno zawierać od 2 do 60 znaków",
+				"len_2_30": "Pole powinno zawierać od 2 do 30 znaków",
+				"len_2_50": "Pole powinno zawierać od 2 do 50 znaków",
+				"len_2_60": "Pole powinno zawierać od 2 do 60 znaków",
+				"len_5_60": "Pole powinno zawierać od 5 do 60 znaków",
+				"isEmail": "Pole powinno zawierać prawidłowy adres email",
+				"isNumeric": "Pole powinno zawierać wyłącznie cyfry",
+				"isDate": "Pole powinno zawierać date",
+				"min_80": "Podana wartość jest mniejsza niż 80",
+				"max_1500": "Podana wartość jest większa niż 1500",
+				"quantityError": "Wprowadź poprawną wartość",
+				"inputError": "Wprowadź poprawną wartość",
+				"formErrors": "Formularz zawiera błędy",
+				"error_short": "Błąd",
+				"error": "Błąd"
+			}
+		},
+		"placeHolders": {
+			"messages": {
+				"len_2_20": "2-20 znaków",
+				"len_2_30": "2-30 znaków",
+				"len_2_50": "2-50 znaków",
+				"len_2_60": "2-60 znaków",
+				"quantity": "min. 1",
+				"orderAmount": "Kwota modelu * ilość",
+				"date": "DD/MM/YYYY",
+				"phoneNumber": "np. +48123456789",
+				"email": "np. nazwa@domena.pl"
+			}
 		}
 	},
 	"customer": {
@@ -42,7 +82,7 @@
 		"form": {
 			"order": "Historia zamówień",
 			"add": {
-				"pageTitle": "Dodawanie klienta",
+				"pageTitle": "Nowy klient",
 				"btnLabel": "Dodaj klienta",
 				"confirm": {
 					"header": "Potwierdzenie operacji",
@@ -58,7 +98,9 @@
 				}
 			},
 			"details": {
-				"pageTitle": "Szczegóły klienta"
+				"pageTitle": "Szczegóły klienta",
+				"loading": "Ładowanie danych klienta...",
+				"model": "Nazwa modelu"
 			}
 		}
 	},
@@ -92,6 +134,11 @@
 					"header": "Potwierdzenie operacji",
 					"text": "Pomyślnie zaktualizowano model"
 				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły modelu",
+				"loading": "Ładowanie danych modelu...",
+				"customer": "Klient"
 			}
 		}
 	},
@@ -125,6 +172,10 @@
 					"header": "Potwierdzenie operacji",
 					"text": "Pomyślnie zaktualizowano zamówienie"
 				}
+			},
+			"details": {
+				"pageTitle": "Szczegóły zamówień",
+				"loading": "Ładowanie zamówień..."
 			}
 		}
 	},

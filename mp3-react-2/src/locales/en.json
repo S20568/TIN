@@ -1,9 +1,14 @@
 {
 	"main-page": {
-		"content": "Main page"
+		"content": "Main page",
+		"description": "F1 cars models shop!"
+	},
+	"auth": {
+		"pageTitle" : "Login",
+		"logout": "Logout"
 	},
 	"nav": {
-		"main-page": "Main page",
+		"main-page": "Home",
 		"customers": "Customers",
 		"models": "Models",
 		"orders": "Orders"
@@ -19,9 +24,42 @@
 	},
 	"form": {
 		"actions": {
+			"add": "Add",
 			"return": "Return",
 			"edit": "Edit",
-			"cancel": "Cancel"
+			"cancel": "Cancel",
+			"login": "Login"
+		},
+		"validation": {
+			"messages": {
+				"notEmpty": "The field is required",
+				"len_2_20": "The field should contain from 2 to 20 characters",
+				"len_2_30": "The field should contain from 2 to 30 characters",
+				"len_2_50": "The field should contain from 2 to 50 characters",
+				"len_2_60": "The field should contain from 2 to 60 characters",
+				"len_5_60": "The field should contain from 5 to 60 characters",
+				"isEmail": "The field should contain a valid email address",
+				"isNumeric": "The fiels should contain only numbers",
+				"isDate": "The field should contain date",
+				"min_80": "Given value is lower than 80",
+				"max_1500": "Given value is higher than 1500",
+				"inputError": "The input contains errors",
+				"formErrors": "The form contains errors",
+				"error_short": "Error",
+				"error": "Error"
+			}
+		},
+		"placeHolders": {
+			"messages": {
+				"len_2_20": "2-20 characters",
+				"len_2_30": "2-30 characters",
+				"len_2_50": "2-50 characters",
+				"quantity": "min. 1",
+				"orderAmount": "Model price * quantity",
+				"date": "DD/MM/YYYY",
+				"phoneNumber": "e.g. +48123456789",
+				"email": "e.g. name@domain.com"
+			}
 		}
 	},
 	"customer": {
@@ -40,7 +78,7 @@
 		"form": {
 			"order": "Order history",
 			"add": {
-				"pageTitle": "Adding new customer",
+				"pageTitle": "New customer",
 				"btnLabel": "Add new customer",
 				"confirm": {
 					"header": "Confirmation",
@@ -56,7 +94,9 @@
 				}
 			},
 			"details": {
-				"pageTitle": "Customer details"
+				"pageTitle": "Customer details",
+				"loading": "Loading customer data...",
+				"model": "Model name"
 			}
 		}
 	},
@@ -76,7 +116,7 @@
 		"form": {
 			"order": "Order history",
 			"add": {
-				"pageTitle": "Adding new model",
+				"pageTitle": "Add new model",
 				"btnLabel": "Add new model",
 				"confirm": {
 					"header": "Confirmation",
@@ -84,12 +124,17 @@
 				}
 			},
 			"edit": {
-				"pageTitle": "Editing model",
+				"pageTitle": "Edit model",
 				"btnLabel": "Save changes",
 				"confirm": {
 					"header": "Confirmation",
 					"text": "Model has been successfully updated"
 				}
+			},
+			"details": {
+				"pageTitle": "Model details",
+				"loading": "Loading model data...",
+				"customer": "Customer"
 			}
 		}
 	},
@@ -123,6 +168,9 @@
 					"header": "Confirmation",
 					"text": "Order has been successfully updated"
 				}
+			},"details": {
+				"pageTitle": "Order details",
+				"loading": "Loading orders..."
 			}
 		}
 	},
