@@ -28,7 +28,7 @@ function checkTextLengthRange(value, min, max) {
     if (max && lenght > max) {
         return false;
     }
-    if (min && lenght < min) {
+    if (min & lenght < min) {
         return false;
     }
     return true;
@@ -39,8 +39,7 @@ function checkEmail(value) {
         return false;
     }
     value = value.toString().trim();
-    const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    return re.test(value);
+    const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]\+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 }
 
 function checkPhoneNumber(value) {
@@ -62,16 +61,9 @@ function checkModelScale(value) {
 }
 
 function checkModelPrice(value) {
-    const min = 80;
-    const max = 1500;
-    if (!value)
+    if (!value) {
         return false;
-    if (isNaN(value))
-        return false;
-    if (value < min)
-        return false;
-    if (value > max)
-        return false;
-    return true;
+    }
+    value = value
 }
 

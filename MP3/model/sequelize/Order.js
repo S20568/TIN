@@ -21,10 +21,10 @@ const Order = sequelize.define('Order', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmprt"
             },
             isNumeric: {
-                msg: "Pole powinno zawierać wyłącznie cyfry"
+                msg: "isNumeric"
             }
         }
     },
@@ -33,10 +33,10 @@ const Order = sequelize.define('Order', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             isDate: {
-                msg: "Pole powinno zawierać date"
+                msg: "isDate"
             }
         }
     },
@@ -45,10 +45,10 @@ const Order = sequelize.define('Order', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             isNumeric: {
-                msg: "Pole powinno zawierać wyłącznie cyfry"
+                msg: "isNumeric"
             }
         }
     }

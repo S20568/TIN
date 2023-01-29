@@ -30,6 +30,7 @@ exports.createCustomer = (req, res, next) => {
             res.status(201).json(newCustomer);
         })
         .catch(err => {
+            console.log(err)
             if(!err.statusCode) {
                 err.statusCode = 500;
             }

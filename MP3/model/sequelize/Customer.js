@@ -14,11 +14,11 @@ const Customer = sequelize.define('Customer', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "error.emptyString"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,20],
-                msg: "error.stringLen_2_20"
+                msg: "len_2_20"
             },
         }
     },
@@ -27,11 +27,11 @@ const Customer = sequelize.define('Customer', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "error.emptyString"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,30],
-                msg: "error.stringLen_2_30"
+                msg: "len_2_30"
             },
         }
     },
@@ -41,14 +41,14 @@ const Customer = sequelize.define('Customer', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "error.emptyString"
+                msg: "notEmpty"
             },
             len: {
                 args: [5,60],
-                msg: "error.stringLen_5_60",
+                msg: "len_5_60",
             },
             isEmail: {
-                msg: "Pole powinno zawierać prawidłowy adres email"
+                msg: "isEmail"
             }
         }
     },
@@ -58,17 +58,17 @@ const Customer = sequelize.define('Customer', {
         unique: true,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             is: {
                 args: /^(\+([0-9]{2})\)?)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})?[-. ]?([0-9]{3})$/,
-                msg: "Wprowadź poprawną wartość"
+                msg: "inputError"
             }
         },
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
 });
 

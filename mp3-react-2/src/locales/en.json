@@ -1,0 +1,146 @@
+{
+	"main-page": {
+		"content": "Main page"
+	},
+	"nav": {
+		"main-page": "Main page",
+		"customers": "Customers",
+		"models": "Models",
+		"orders": "Orders"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		},
+		"title": "list.title"
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"customer": {
+		"fields": {
+			"customerFirstName": "Name",
+			"customerLastName": "Last name",
+			"customerEmail": "Email",
+			"phoneNumber": "Phone number"
+		},
+		"list": {
+			"title": "Customers",
+			"addNew": "Add new customer",
+			"noData": "Mo customers in database",
+			"pageTitle": "List of customers"
+		},
+		"form": {
+			"order": "Order history",
+			"add": {
+				"pageTitle": "Adding new customer",
+				"btnLabel": "Add new customer",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "New customer has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing customer",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Customer has been successfully updated"
+				}
+			},
+			"details": {
+				"pageTitle": "Customer details"
+			}
+		}
+	},
+	"model": {
+		"fields": {
+			"modelName": "Name",
+			"modelManufacturer": "Manufacturer",
+			"modelScale": "Scale",
+			"modelPrice": "Price"
+		},
+		"list": {
+			"title": "Models",
+			"addNew": "Add new model",
+			"noData": "No models in database",
+			"pageTitle": "List of models"
+		},
+		"form": {
+			"order": "Order history",
+			"add": {
+				"pageTitle": "Adding new model",
+				"btnLabel": "Add new model",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "New model has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing model",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Model has been successfully updated"
+				}
+			}
+		}
+	},
+	"order": {
+		"fields": {
+			"customerName": "Customer",
+			"modelName": "Model",
+			"quantity": "Quantity",
+			"date": "Order date",
+			"orderAmount": "Order amount"
+		},
+		"list": {
+			"title": "Orders",
+			"addNew": "Add new order",
+			"noData": "No orders in database",
+			"pageTitle": "List of orders"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding new order",
+				"btnLabel": "Add new order",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "New order has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing order",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Order has been successfully updated"
+				}
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "validationMessage.fieldRequired",
+		"summary": "validationMessage.summary",
+		"firstNameTextLength": "validationMessage.firstNameTextLength",
+		"lastNameTextLength": "validationMessage.lastNameTextLength",
+		"emailTextLength": "validationMessage.emailTextLength",
+		"email": "validationMessage.email",
+		"phoneNumber": "validationMessage.phoneNumber"
+	},
+	"orders": {
+		"fields": {
+			"modelName": "orders.fields.modelName",
+			"quantity": "orders.fields.quantity",
+			"date": "orders.fields.date",
+			"orderAmount": "orders.fields.orderAmount"
+		}
+	}
+}

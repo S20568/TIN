@@ -1,7 +1,6 @@
 const Customer = require('../../model/sequelize/Customer');
 const Model = require('../../model/sequelize/Model');
 const Order = require('../../model/sequelize/Order');
-const authUtil = require('../../utils/authUtils');
 
 exports.getCustomers = () => {
     return Customer.findAll();
@@ -21,17 +20,10 @@ exports.getCustomerById = (customerId) => {
 };
 
 exports.createCustomer = (newCustomerData) => {
-    return Customer.create({
-        customerFirstName: newCustomerData.customerFirstName,
-        customerLastName: newCustomerData.customerLastName,
-        phoneNumber: newCustomerData.phoneNumber
-    });
+    return Customer.create(newCustomerData);
 };
 
 exports.updateCustomer = (customerId, customerData) => {
-    const customerFirstName = customerData.customerFirstName;
-    const customerLastName = customerData.customerFirstName;
-    const phoneNumber = customerData.phoneNumber;
     return Customer.update(customerData, {
         where: { _id: customerId }
     });

@@ -14,11 +14,11 @@ const Model = sequelize.define('Model', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             len: {
                 args: [2,50],
-                msg: "Pole powinno zawierać od 2 do 50 znaków"
+                msg: "len_2_50"
             },
         }
     },
@@ -27,11 +27,11 @@ const Model = sequelize.define('Model', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             len: {
-                args: [2,50],
-                msg: "Pole powinno zawierać od 2 do 30 znaków"
+                args: [2,30],
+                msg: "len_2_30"
             },
         }
     },
@@ -40,11 +40,11 @@ const Model = sequelize.define('Model', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             is: {
                 args: /1:[0-9]{2}$/,
-                msg: "Wprowadź poprawną wartość"
+                msg: "inputError"
             }
         }
     },
@@ -53,18 +53,18 @@ const Model = sequelize.define('Model', {
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Pole jest wymagane"
+                msg: "notEmpty"
             },
             isNumeric: {
-                msg: "Pole powinno zawierać wyłącznie cyfry"
+                msg: "isNumeric"
             },
             min: {
                 args: 80,
-                msg: "Podana wartość jest mniejsza niż 80"
+                msg: "min_80"
             },
             max: {
                 args: 1500,
-                msg: "Podana wartość jest większa niż 1500"
+                msg: "max_1500"
             }
         }
     }

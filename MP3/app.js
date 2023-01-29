@@ -13,6 +13,7 @@ const customerApiRouter = require('./routes/api/CustomerApiRoute');
 const modelApiRouter = require('./routes/api/ModelApiRoute');
 const orderApiRouter = require('./routes/api/OrderApiRoute');
 const authUtils = require('./utils/authUtils');
+const authApiRouter = require('./routes/api/AuthApiRoute');
 
 var app = express();
 var cors = require('cors');
@@ -27,6 +28,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 i18n.configure({
     locales: ['pl', 'en'],
@@ -56,7 +58,7 @@ app.use((req, res, next) => {
     }
     next();
 });
-app.use(cors());
+
 
 app.use('/', indexRouter);
 app.use('/customers', authUtils.permitAuthenticatedUser, customerRouter);
@@ -65,6 +67,7 @@ app.use('/orders', authUtils.permitAuthenticatedUser, orderRouter);
 app.use('/api/customers', customerApiRouter);
 app.use('/api/models', modelApiRouter);
 app.use('/api/orders', orderApiRouter);
+app.use('/api/auth', authApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
